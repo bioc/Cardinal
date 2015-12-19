@@ -1,4 +1,11 @@
 
+CHANGES IN VERSION 1.2.1 [2015-12-19]
+-----------------------------------
+
+BUG FIXES
+
+    o Removed bugged unit test for SImageSet pixelApply affecting R 3.2.3
+
 CHANGES IN VERSION 1.1.0 [2015-10-1]
 -----------------------------------
 
