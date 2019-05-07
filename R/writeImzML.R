@@ -87,7 +87,7 @@ writeImzML <- function(object, name, folder = getwd(), merge = FALSE,
 	}
 	options(matter.cast.warning=warn)
 	hash <- checksum(pspectra, algo="sha1")
-	metadata(info)[["universally unique identifier"]] <- paste0("{", id$string, "}")
+	metadata(info)[["universally unique identifier"]] <- id$string
 	metadata(info)[["ibd SHA-1"]] <- tolower(as.character(hash))
 	info
 }
