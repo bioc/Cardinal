@@ -7,6 +7,3 @@ TODO for Cardinal package
 - Add ggplot2 and lattice graphics engine options (?)
 - Shiny GUI
 
-BUGS for Cardinal package
--------------------------
-- Fix integer overflow when writing large imzML files
