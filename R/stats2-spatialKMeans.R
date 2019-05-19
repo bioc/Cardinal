@@ -20,7 +20,7 @@ setMethod("spatialKMeans", "SparseImagingExperiment",
 			dist=dist, tol.dist=tol.dist, iter.max=1, BPPARAM=BPPARAM)
 		results <- list()
 		.message("clustering components...")
-		for ( i in r ) {
+		for ( i in seq_along(r) ) {
 			rngseeds <- generateRNGStreams(length(k))
 			results[[i]] <- bpmapply(function(ki, seed, BPPARAM) {
 				.message("r = ", r[i], ", k = ", ki)
