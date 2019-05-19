@@ -69,10 +69,11 @@ setAs("SpatialKMeans", "SpatialKMeans2",
 	cluster <- kmeans(proj, centers=k, iter.max=iter.max,
 		nstart=nstart, algorithm=algorithm)$cluster
 	cluster <- factor(cluster)
-	centers <- summarize(x, .stat="mean", .group_by=cluster,
-		BPPARAM=BPPARAM)$mean
-	do_rbind <- function(ans) do.call("rbind", ans)
+	centers <- summarize(x, .stat="mean", .group_by=cluster, BPPARAM=BPPARAM)
+	centers <- as.matrix(centers, slots=FALSE)
+	colnames(centers) <- levels(cluster)
 	# calculate correlation with clusters
+	do_rbind <- function(ans) do.call("rbind", ans)
 	corr <- featureApply(x, function(xbl) {
 		t(apply(xbl, 1, function(xi) {
 			vapply(levels(cluster), function(l) {
@@ -85,5 +86,6 @@ setAs("SpatialKMeans", "SpatialKMeans2",
 			}, numeric(1))
 		}))
 	}, .blocks=TRUE, .simplify=do_rbind, BPPARAM=BPPARAM)
+	colnames(corr) <- levels(cluster)
 	list(cluster=cluster, centers=centers, correlation=corr)
 }
