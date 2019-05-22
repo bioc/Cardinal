@@ -1,4 +1,13 @@
 
+CHANGES IN VERSION 2.2.6 [2019-5-22]
+-----------------------------------
+
+BUG FIXES
+
+    o Using 'peakPick()' with methods 'simple' and 'adaptive' now
+        give a warning and recover when kurtosis can't be estimated
+    o Fix typo in "Pre-processing" section of Cardinal 2 User Guide
+
 CHANGES IN VERSION 2.2.5 [2019-5-19]
 -----------------------------------
 
